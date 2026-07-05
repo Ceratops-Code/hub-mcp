@@ -16,6 +16,14 @@ const optionalStringArb = fc.option(fc.string({ minLength: 1, maxLength: 24 }), 
 const optionalArrayArb = fc.option(fc.array(arrayValueArb, { maxLength: 4 }), {
     nil: undefined,
 });
+const dockerNameStartChars = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
+const dockerNameChars = 'abcdefghijklmnopqrstuvwxyz0123456789._-'.split('');
+const dockerNameArb = fc
+    .tuple(
+        fc.constantFrom(...dockerNameStartChars),
+        fc.array(fc.constantFrom(...dockerNameChars), { maxLength: 19 })
+    )
+    .map(([first, rest]) => `${first}${rest.join('')}`);
 
 fc.assert(
     fc.property(
@@ -74,7 +82,7 @@ fc.assert(
 fc.assert(
     fc.property(
         fc.record({
-            namespace: fc.string({ minLength: 1, maxLength: 20 }),
+            namespace: dockerNameArb,
             page: fc.option(fc.integer({ min: 1, max: 50 }), { nil: undefined }),
             page_size: fc.option(fc.integer({ min: 1, max: 100 }), { nil: undefined }),
             ordering: optionalStringArb,
@@ -98,10 +106,10 @@ fc.assert(
 fc.assert(
     fc.property(
         fc.record({
-            namespace: fc.option(fc.string({ minLength: 1, maxLength: 20 }), {
+            namespace: fc.option(dockerNameArb, {
                 nil: undefined,
             }),
-            repository: fc.string({ minLength: 1, maxLength: 20 }),
+            repository: dockerNameArb,
             page: fc.option(fc.integer({ min: 1, max: 50 }), { nil: undefined }),
             page_size: fc.option(fc.integer({ min: 1, max: 100 }), { nil: undefined }),
             architecture: optionalStringArb,
