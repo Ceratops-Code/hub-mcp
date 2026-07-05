@@ -78,7 +78,7 @@
                 "minimatch": "^3.1.5"
             }
         },
-        "undici": "^6.25.0"
+        "undici": "^6.27.0"
     },
     "engines": {
         "node": ">=24"
