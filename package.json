@@ -44,7 +44,7 @@
         "@genql/cli": "^6.3.4",
         "@types/express": "^5.0.6",
         "@types/lodash": "^4.17.24",
-        "@types/node": "^24.13.2",
+        "@types/node": "^24.13.3",
         "commander": "^15.0.0",
         "esbuild": "^0.28.1",
         "eslint": "^10.4.1",
