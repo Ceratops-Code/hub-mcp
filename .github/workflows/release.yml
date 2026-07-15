@@ -6,6 +6,8 @@ on:
       - "v*.*.*"
   workflow_dispatch:
 
+permissions: read-all
+
 env:
   IMAGE_NAME: ${{ vars.DOCKERHUB_REPOSITORY }}
 
