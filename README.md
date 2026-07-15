@@ -327,13 +327,17 @@ $ docker ai "Can you help me update my Dockerfile to use a docker hardened image
 
 ### Namespace Management
 
-- **get_namespaces** - Get list of namespaces the user is a member of
-    - `page`: Page number for pagination (string, optional)
-    - `page_size`: Number of items per page (string, optional)
+- **listNamespaces** - List organisations (namespaces) the user can access
+    - `page`: Page number for pagination (number, optional)
+    - `page_size`: Number of items per page (number, optional)
+
+- **getPersonalNamespace** - Get the user's personal namespace
+
+- **listAllNamespacesMemberOf** - List all namespaces the user belongs to, including the personal namespace
 
 ### Repository Management
 
-- **list_repositories_by_namespace** - List all repositories under the provided namespace
+- **listRepositoriesByNamespace** - List all repositories under the provided namespace
     - `namespace`: Repository namespace (string, required)
     - `content_types`: Comma-delimited list of content types (string, optional)
     - `media_types`: Comma-delimited list of media types (string, optional)
@@ -342,46 +346,46 @@ $ docker ai "Can you help me update my Dockerfile to use a docker hardened image
     - `page`: Page number (number, optional)
     - `page_size`: Number of items per page (number, optional)
 
-- **get_repository_info** - Get information about a repository
+- **getRepositoryInfo** - Get information about a repository
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
 
-- **check_repository** - Check if a repository exists
+- **checkRepository** - Check if a repository exists
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
 
-- **check_repository_tag** - Check if a specific tag exists in a repository
+- **checkRepositoryTag** - Check if a specific tag exists in a repository
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
     - `tag`: Tag name (string, required)
 
-- **create_repository** - Create a new repository in the provided namespace
+- **createRepository** - Create a new repository in the provided namespace
     - `namespace`: Repository namespace (string, required)
     - `body`: Request body data (object, optional)
 
-- **update_repository_info** - Update repository information
+- **updateRepositoryInfo** - Update repository information
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
     - `body`: Request body data (object, optional)
 
 ### Tag Management
 
-- **list_repository_tags** - List all tags for a repository
+- **listRepositoryTags** - List all tags for a repository
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
     - `architecture`: Filter by architecture (string, optional)
     - `os`: Filter by operating system (string, optional)
     - `page`: Page number (number, optional)
     - `page_size`: Number of items per page (number, optional)
-- **read_repository_tag** - Get details of a specific repository tag
+- **getRepositoryTag** - Get details of a specific repository tag
     - `namespace`: Repository namespace (string, required)
     - `repository`: Repository name (string, required)
     - `tag`: Tag name (string, required)
 
 ### Hardened Images
 
-- **docker_hardened_images** - Query for mirrored Docker Hardened Images (DHI) in the namespace
-    - `namespace`: The namespace to query for mirrored hardened repositories (string, optional)
+- **dockerHardenedImages** - Query for mirrored Docker Hardened Images (DHI) in an organisation
+    - `organisation`: Organisation to query for mirrored hardened repositories (string, required)
 
 ## Licensing
 
