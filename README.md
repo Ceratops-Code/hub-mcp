@@ -223,6 +223,12 @@ Release flow:
 2. Create a semver tag such as `v1.0.0`.
 3. Push the tag. The publish workflow will build a multi-arch image and push versioned and `latest` tags to Docker Hub.
 
+The workflow also publishes signed build provenance for each image digest. Verify a published tag with:
+
+```console
+gh attestation verify oci://index.docker.io/<namespace>/<repository>:<tag> --repo Ceratops-Code/hub-mcp
+```
+
 To override Docker's built-in `dockerhub` MCP server entry with your own image, import a catalog like the example in `docs/docker-mcp-catalog-override.example.yaml`.
 
 ## Task Examples
