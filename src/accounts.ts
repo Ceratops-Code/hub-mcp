@@ -14,11 +14,11 @@
    limitations under the License.
 */
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Asset, AssetConfig } from './asset';
 import { z } from 'zod';
 import { createPaginatedResponseSchema } from './types';
-import { CallToolResult } from '@modelcontextprotocol/sdk/types';
+import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 
 //#region  Types

@@ -14,10 +14,10 @@
    limitations under the License.
 */
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Asset, AssetConfig } from './asset';
 import { z } from 'zod';
-import { CallToolResult } from '@modelcontextprotocol/sdk/types';
+import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { logger } from './logger';
 import { buildSearchUrl, SearchRequest } from './query-builders';
 

@@ -14,9 +14,9 @@
    limitations under the License.
 */
 
-import { CallToolResult } from '@modelcontextprotocol/sdk/types';
+import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
 import { logger } from './logger';
-import { RegisteredTool } from '@modelcontextprotocol/sdk/server/mcp';
+import { RegisteredTool } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { jwtDecode } from 'jwt-decode';
 
 export type AssetConfig = {
