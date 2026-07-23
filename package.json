@@ -58,7 +58,7 @@
         "prettier": "^3.8.4",
         "tsx": "^4.23.1",
         "typescript": "npm:@typescript/typescript6@^6.0.2",
-        "typescript-eslint": "^8.64.0"
+        "typescript-eslint": "^8.65.0"
     },
     "overrides": {
         "anymatch@3.1.3": {
